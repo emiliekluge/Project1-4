@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Degree Tracker</title>
+</head>
+
+<body>
+
+<header>
+<h1>JMU Degree Tracker</h1>
+
+<p>A simple way for JMU students to see what they've completed and what they still need to graduate!</p>
+
+<nav>
+   <ul>
+   <li><a href="#overview">Degree Overview</a></li>
+   <li><a href="#major">Major Requirements</a></li>
+   <li><a href="#minor">Minor Requirements</a></li>
+   <li><a href="#gen-ed">General Education Requirements</a></li>
+</ul>
+</nav>
+
+<p><img src="jmu-commencement.jpg" alt="JMU students at a commencement ceremony wearing their purple cap and gowns"></p>
+
+</header>
+
+<main>
+   <section id="overview">
+<h2>Degree Overview</h2>
+<form>
+<fieldset>
+<legend>Degree Information:</legend>
+
+
+<p><label for="dg"> Degree:</label>
+<input type="text" id="dg" name="dg"></p>
+
+<p><label for="mj">Major:</label>
+<input type="text" id="mj" name="mj"></p>
+
+
+<p><label for="mi">Minor:</label>
+<input type="text" id="mi" name="mi"></p>
+
+</fieldset>
+
+<fieldset>
+<legend>Credit Hours Progress:</legend>
+
+<p><label for="cr">Credits Completed: </label>
+<input type="number" id="cr" name="cr"></p>
+
+
+<p><label for="in">Credits In Progress: </label>
+<input type="number" id="in" name="in"></p>
+<p><label for="rq"> Credits Required: </label>
+<input type="number" id="rq" name="rq"></p>
+
+
+</fieldset>
+
+<p><button type="submit">Save Degree Information</button></p>
+
+</form>
+</section>
+
+<section id="major">
+
+<h2> Major Requirements </h2><p>Add your required major courses and check them off as you complete them.</p>
+
+<form>
+
+<h3>Checklist</h3>
+
+<ul>
+   <li>
+<input type="checkbox" id="major-course-1" name="major-course-1"><label for="major-course-1">Sample Course - 3 credits</label>
+</li>
+
+<li>
+<input type="checkbox" id="major-course-2" name="major-course-2"><label for="major-course-2">Sample Course - 3 credits</label>
+</li>
+
+<li>
+<input type="checkbox" id="major-course-3" name="major-course-3"><label for="major-course-3">Sample Course - 3 credits</label>
+</li>
+
+</ul>
+
+   <label for="major-course">Course:</label>
+   <input type="text" id="major-course" name="major-course" placeholder="Enter course name">
+
+   <label for="major-credits">Credits:</label>
+   <input type="number" id="major-credits" name="major-credits" placeholder="Enter credits">
+
+   <button type="submit">Add Course</button>
+
+   </form>
+
+</section>
+
+<section id="minor">
+
+<h2> Minor Requirements </h2><p>Add your required minor courses and check them off as you complete them.</p>
+
+<form>
+
+<h3>Checklist</h3>
+
+
+<ul>
+   <li>
+<input type="checkbox" id="minor-course-1" name="minor-course-1"><label for="minor-course-1">Sample Course - 3 credits</label>
+</li>
+
+<li>
+<input type="checkbox" id="minor-course-2" name="minor-course-2"><label for="minor-course-2">Sample Course - 3 credits</label>
+</li>
+
+<li>
+<input type="checkbox" id="minor-course-3" name="minor-course-3"><label for="minor-course-3">Sample Course - 3 credits</label>
+</li>
+
+</ul>
+
+   <label for="minor-course">Course:</label>
+   <input type="text" id="minor-course" name="minor-course" placeholder="Enter course name">
+
+   <label for="minor-credits">Credits:</label>
+   <input type="number" id="minor-credits" name="minor-credits" placeholder="Enter credits">
+
+   <button type="submit">Add Course</button>
+
+   </form>
+
+</section>
+
+<section id="gen-ed">
+
+<h2>General Education Requirements</h2><p> Check off each General Education requirement as you complete it. Course options that fulfill each requirement are listed below the clusters.</p>
+
+
+<h3>Madison Foundations</h3>
+
+         <ul>
+            <li>
+               <input type="checkbox" id="critical-thinking" name="critical-thinking">
+               <label for="critical-thinking">Critical Thinking (C1CT) - Choose one course</label>
+
+               <ul>
+                  <li> BUS 160 </li>
+                  <li> EDUC 102 </li>
+                  <li> HIST 150 </li>
+                  <li> ISAT 160</li>
+                  <li> PHIL 120 </li>
+                  <li> PHIL 150 </li>
+                  <li> SMAD 150 </li>
+                  <li> UNST 300 &amp; Other Integrative Options</li>
+               </ul>
+            </li>
+
+            <li>
+               <input type="checkbox" id="human-communication" name="human-communication">
+               <label for="human-communication">Human Communication (C1HC) - Choose one course</label>
+
+               <ul>
+                  <li> SCOM 121 </li>
+                  <li> SCOM 122 </li>
+                  <li> SCOM 123 </li>
+               </ul>
+
+            </li>
+
+               <li>
+               <input type="checkbox" id="Writing" name="Writing">
+               <label for="Writing">Writing (C1W) - Choose one course</label>
+
+               <ul>
+                  <li> WRTC 103 </li>
+               </ul>
+            </li>
+</ul>
+<h3>Sociocultural &amp; Wellness Area</h3>
+
+      <ul>
+         <li>
+            <input type="checkbox" id="wellness" name="wellness">
+            <label for="wellness">Wellness Domain (C5WD) - Choose one course </label>
+
+            <ul>
+               <li> HTH 100 </li>
+               <li> KIN 100 </li>
+            </ul>
+         </li>
+
+         <li>
+            <input type="checkbox" id="sculture" name="sculture">
+            <label for="sculture">Sociocultural Domain (C5SD) - Choose one course </label>
+
+            <ul>
+               <li> PSYC 101</li>
+               <li> PSYC 160</li>
+               <li> SOCI 140</li>
+               <li> WGSS 200</li>
+            </ul>
+
+         </li>
+</ul>
+<h3>Arts &amp; Humanities</h3>
+
+      <ul>
+         <li>
+            <input type="checkbox" id="hum" name="hum">
+            <label for="hum">Human Questions and Contexts (C2HQC) - Choose one course</label>
+
+            <ul>
+               <li> AMST 200 </li>
+               <li> ANTH 205 </li>
+               <li> HIST 101 </li>
+               <li> HIST 102 </li>
+               <li> HUM 250 </li>
+               <li> HUM 251 </li>
+               <li> HUM 252 </li>
+               <li> LAXC 252 </li>
+               <li> PHIL 101 </li>
+               <li> REL 101 </li>
+               <li> REL 102 </li>
+            </ul>
+         </li>
+
+         <li>
+            <input type="checkbox" id="vis" name="vis">
+            <label for="vis">Visual and Performing Arts (C2VPA) - Choose one course </label>
+
+            <ul>
+               <li> ART 200</li>
+               <li> ARTH 205</li>
+               <li> ARTH 206</li>
+               <li> DANC 215</li>
+               <li> MUS 200</li>
+               <li> MUS 203</li>
+               <li> MUS 206</li>
+               <li> THEA 210</li>
+
+            </ul>
+
+         </li>
+
+          <li>
+               <input type="checkbox" id="lit" name="lit">
+               <label for="lit">Literature (C2L) - Choose one course </label>
+
+               <ul>
+                  <li> ENG 221</li>
+                  <li> ENG 222</li>
+                  <li> ENG 235</li>
+                  <li> ENG 236</li>
+                  <li> ENG 239</li>
+                  <li> ENG 247</li>
+                  <li> ENG 248</li>
+                  <li> ENG 260</li>
+                  <li> HUM 200</li>
+               </ul>
+            </li>
+</ul>
+<h3>American &amp; Global Perspectives</h3>
+
+   <ul>
+      <li>
+         <input type="checkbox" id="am" name="am">
+         <label for="am">The American Experience (C4AE) - Choose one course </label>
+
+         <ul>
+            <li> HIST 225 </li>
+            <li> JUST 225 </li>
+            <li> POSC 225 </li>
+         </ul>
+      </li>
+
+      <li>
+         <input type="checkbox" id="glo" name="glo">
+         <label for="glo">The Global Experience (C4GE) - Choose one course </label>
+
+         <ul>
+            <li> AAAD 200</li>
+            <li> ANTH 195</li>
+            <li> ECON 200</li>
+            <li> GEOG 200</li>
+            <li> POSC 200</li>
+            <li> SOCI 110</li>
+         </ul>
+      </li>
+</ul>
+<h3>The Natural World</h3>
+
+      <ul>
+         <li>
+            <input type="checkbox" id="qr" name="qr">
+            <label for="qr">Quantitative Reasoning (C3QR) - Choose one course </label>
+
+            <ul>
+               <li> ISAT 151 </li>
+               <li> ISAT 251 </li>
+               <li> MATH 103 </li>
+               <li> MATH 105 </li>
+               <li> MATH 110 </li>
+               <li> MATH 205 </li>
+               <li> MATH 220 </li>
+               <li> MATH 229 </li>
+               <li> MATH 231</li>
+               <li> MATH 235 </li>
+            </ul>
+         </li>
+
+         <li>
+            <input type="checkbox" id="pp" name="pp">
+            <label for="pp">Physical Principles (C3PP) - Choose one course </label>
+
+            <ul>
+               <li> ASTR 120 </li>
+               <li> ASTR 121 </li>
+               <li> CHEM 120 </li>
+               <li> CHEM 131 </li>
+               <li> ENVT 101 </li>
+               <li> ISAT 100 </li>
+               <li> ISAT 112 </li>
+               <li> ISCI 101 </li>
+               <li> ISCI 172 </li>
+               <li> PHYS 121 </li>
+               <li> PHYS 140 </li>
+               <li> PHYS 215 </li>
+               <li> PHYS 240 </li>
+            </ul>
+         </li>
+
+          <li>
+               <input type="checkbox" id="ns" name="ns">
+               <label for="ns">Natural Systems (C3NS) - Choose one course </label>
+
+               <ul>
+                  <li> ANTH 196 </li>
+                  <li> BIO 103 </li>
+                  <li> BIO 140 </li>
+                  <li> BIO 270 </li>
+                  <li> GEOL 102 </li>
+                  <li> GEOL 110 </li>
+                  <li> GEOL 115 </li>
+                  <li> GEOL 210 </li>
+                  <li> GEOL 211 </li>
+                  <li> ISAT 113 </li>
+                  <li> ISCI 171 </li>
+               </ul>
+            </li>
+
+
+          <li>
+               <input type="checkbox" id="lab" name="lab">
+               <label for="lab">Lab Experience (C3L) - Choose one course </label>
+
+               <ul>
+                  <li> ANTH 196L </li>
+                  <li> BIO 140L </li>
+                  <li> BIO 270L </li>
+                  <li> CHEM 131L </li>
+                  <li> GEOL 110L </li>
+                  <li> GEOL 115L </li>
+                  <li> ISAT 113L</li>
+                  <li> ISCI 104 </li>
+                  <li> ISCI 173 </li>
+                  <li> PHYS 140L </li>
+                  <li> PHYS 240L </li>
+               </ul>
+            </li>
+         </ul>
+         <p>Download the <a href="https://www.jmu.edu/gened/_files/general-education-planner-2026-2027.pdf">Official JMU General Education Requirement (PDF)</a> for catalog details.</p>
+
+      </section>
+
+   </main>
+      
+   <footer>
+      <p>&copy; Emilie Kluge</p>
+   </footer>
+
+</body>
+
+</html>
