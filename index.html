@@ -5,12 +5,25 @@
 <head>
    <meta charset="UTF-8">
    <title>Degree Tracker</title>
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://font.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+   <link rel="stylesheet" href="style.css">
+
+
+   <!--AI Use Disclosure:
+   Tool(s): ChatGPT (free version)
+   Purpose: Helped explain CSS concepts, suggest styling ideas, and troubleshoot layout, spacing, list formatting, and alignment issues.
+   Human Role: I applied the explanations and suggestions to my project, modified the CSS to fit my design, and made the final styling and layout decisions. -->
+
 </head>
 
 <body>
 
 <header>
-<h1>JMU Degree Tracker</h1>
+<h1>DukeTrack</h1>
 
 <p>A simple way for JMU students to see what they've completed and what they still need to graduate!</p>
 
@@ -23,7 +36,7 @@
 </ul>
 </nav>
 
-<p><img src="jmu-commencement.jpg" alt="JMU students at a commencement ceremony wearing their purple cap and gowns"></p>
+<p><img class="hero-image" src="jmu-commencement.jpg" alt="JMU students at a commencement ceremony wearing their purple cap and gowns"></p>
 
 </header>
 
@@ -31,8 +44,11 @@
    <section id="overview">
 <h2>Degree Overview</h2>
 <form>
-<fieldset>
-<legend>Degree Information:</legend>
+
+<div class="overview-grid">
+
+<div class="overview-card">
+<h3>Degree Information</h3>
 
 
 <p><label for="dg"> Degree:</label>
@@ -45,10 +61,10 @@
 <p><label for="mi">Minor:</label>
 <input type="text" id="mi" name="mi"></p>
 
-</fieldset>
+</div>
 
-<fieldset>
-<legend>Credit Hours Progress:</legend>
+<div class="overview-card">
+<h3>Credit Hours Progress</h3>
 
 <p><label for="cr">Credits Completed: </label>
 <input type="number" id="cr" name="cr"></p>
@@ -57,15 +73,18 @@
 <p><label for="in">Credits In Progress: </label>
 <input type="number" id="in" name="in"></p>
 <p><label for="rq"> Credits Required: </label>
-<input type="number" id="rq" name="rq"></p>
+<input type="number" id="rq" name="rq" value="120"></p>
 
+</div>
 
-</fieldset>
+</div>
 
 <p><button type="submit">Save Degree Information</button></p>
 
 </form>
 </section>
+
+<div class="requirements-grid">
 
 <section id="major">
 
@@ -138,10 +157,13 @@
 
 </section>
 
+</div>
+
 <section id="gen-ed">
 
 <h2>General Education Requirements</h2><p> Check off each General Education requirement as you complete it. Course options that fulfill each requirement are listed below the clusters.</p>
 
+<div class="gen-ed-area alternate">
 
 <h3>Madison Foundations</h3>
 
@@ -183,6 +205,10 @@
                </ul>
             </li>
 </ul>
+
+</div>
+
+<div class="gen-ed-area"> 
 <h3>Sociocultural &amp; Wellness Area</h3>
 
       <ul>
@@ -209,6 +235,11 @@
 
          </li>
 </ul>
+
+</div>
+
+<div class="gen-ed-area alternate">
+
 <h3>Arts &amp; Humanities</h3>
 
       <ul>
@@ -266,6 +297,10 @@
                </ul>
             </li>
 </ul>
+</div>
+
+<div class="gen-ed-area"> 
+
 <h3>American &amp; Global Perspectives</h3>
 
    <ul>
@@ -294,6 +329,12 @@
          </ul>
       </li>
 </ul>
+
+</div>
+
+
+<div class="gen-ed-area alternate">
+
 <h3>The Natural World</h3>
 
       <ul>
@@ -376,7 +417,9 @@
             </li>
          </ul>
          <p>Download the <a href="https://www.jmu.edu/gened/_files/general-education-planner-2026-2027.pdf">Official JMU General Education Requirement (PDF)</a> for catalog details.</p>
+         </div>
 
+         
       </section>
 
    </main>
