@@ -246,3 +246,10 @@ footer p {
    margin-bottom: 0;
 }
 
+#gen-ed a {
+   color: #450084;
+}
+
+#gen-ed a:hover {
+   text-decoration: none;
+}
