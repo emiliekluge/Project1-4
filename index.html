@@ -1,433 +1,678 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DukeTrack helps JMU students organize and track their graduation requirements progress.">
+    <meta name="author" content="Emilie Kluge">
+    <title>DukeTrack | Degree Tracker</title>
 
-<head>
-   <meta charset="UTF-8">
-   <title>Degree Tracker</title>
+   <!-- Bootstrap v5.3.8 -->
+   <!-- LOAD BOOTSTRAP CSS - DO NOT DELETE -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+   <!-- END LOADING BOOTSTRAP CSS -->
+   
 
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://font.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://font.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-   <link rel="stylesheet" href="style.css">
-
-
-   <!--AI Use Disclosure:
-   Tool(s): ChatGPT (free version)
-   Purpose: Helped explain CSS concepts, suggest styling ideas, and troubleshoot layout, spacing, list formatting, and alignment issues.
-   Human Role: I applied the explanations and suggestions to my project, modified the CSS to fit my design, and made the final styling and layout decisions. -->
+   <!-- Custom styles - add your own CSS to this stylesheet -->
+    <link href="style.css" rel="stylesheet">
+  
+<!--
+AI Use Disclosure:
+Tool(s): ChatGPT
+Purpose: Helped explain Bootstrap 5.3.8 components, plan a responsive layout, and provide guidance for converting my previous HTML and CSS website to Bootstrap.
+Human Role: I selected the components, manually implemented and customized the code, and will test the layout and responsiveness.-->
 
 </head>
-
 <body>
 
-<header>
-<h1>DukeTrack</h1>
+<!-- Navigation Bar -->
+<nav class= "navbar navbar-expand-lg">
+  <div class="container">
 
-<p>A simple way for JMU students to see what they've completed and what they still need to graduate!</p>
+    <a class="navbar-brand" href="#"> DukeTrack </a>
 
-<nav>
-   <ul>
-   <li><a href="#overview">Degree Overview</a></li>
-   <li><a href="#major">Major Requirements</a></li>
-   <li><a href="#minor">Minor Requirements</a></li>
-   <li><a href="#gen-ed">General Education Requirements</a></li>
-</ul>
-</nav>
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<p><img class="hero-image" src="jmu-commencement.jpg" alt="JMU students at a commencement ceremony wearing their purple cap and gowns"></p>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
 
-</header>
+        <li class="nav-item">
+          <a class="nav-link" href="#overview">Degree Overview</a>
+        </li>
+        
 
-<main>
-   <section id="overview">
-<h2>Degree Overview</h2>
-<form>
-
-<div class="overview-grid">
-
-<div class="overview-card">
-<h3>Degree Information</h3>
-
-
-<p><label for="dg"> Degree:</label>
-<input type="text" id="dg" name="dg"></p>
-
-<p><label for="mj">Major:</label>
-<input type="text" id="mj" name="mj"></p>
+        <li class="nav-item">
+          <a class="nav-link" href="#major">Major Requirements</a>
+        </li>
 
 
-<p><label for="mi">Minor:</label>
-<input type="text" id="mi" name="mi"></p>
-
-</div>
-
-<div class="overview-card">
-<h3>Credit Hours Progress</h3>
-
-<p><label for="cr">Credits Completed: </label>
-<input type="number" id="cr" name="cr"></p>
+        <li class="nav-item">
+          <a class="nav-link" href="#minor">Minor Requirements</a>
+        </li>
 
 
-<p><label for="in">Credits In Progress: </label>
-<input type="number" id="in" name="in"></p>
-<p><label for="rq"> Credits Required: </label>
-<input type="number" id="rq" name="rq" value="120"></p>
+        <li class="nav-item">
+          <a class="nav-link" href="#gen-ed">General Education Requirements</a>
+        </li>
 
-</div>
+      </ul>
+    </div>
 
-</div>
+  </div>
+ </nav> 
 
-<p><button type="submit">Save Degree Information</button></p>
+<!-- Header -->
+<header class= "py-4">
+  <div class="container">
+
+    <h1 class="mb-3">Welcome to DukeTrack!</h1>
+
+    <p class="lead">
+      A simple way for JMU students to see what they've completed and what they still need to graduate!
+    </p>
+    
+    <!-- Graduation Image -->
+    <img src="jmu-commencement.jpg"
+        class="img-fluid rounded w-100 mt-3 hero-image"
+        alt="JMU students at a commencement ceremony wearing their purple caps and gowns">
+
+   </div>
+  </header>    
+
+<!-- Main Content -->
+<main class="container my-5">
+
+ <!-- Degree Overview Section -->
+ <section id="overview" class="mb-5">
+
+  <h2 class="mb-4">Degree Overview</h2>
+
+  <div class="row g-4">
+
+    <!-- Degree Information Card -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+
+            <h3 class="card-title">Degree Information</h3>
+
+            <div class="mb-3">
+              <label for="dg" class="form-label">Degree:</label>
+              <input type="text" class="form-control" id="dg" name="dg">
+            </div>
+
+            <div class="mb-3">
+              <label for="mj" class="form-label">Major:</label>
+              <input type="text" class="form-control" id="mj" name="mj">
+            </div>
+
+            <div class="mb-3">
+              <label for="mi" class="form-label">Minor:</label>
+              <input type="text" class="form-control" id="mi" name="mi">
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Credit Hours Progress Card -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+
+            <h3 class="card-title">Credit Hours Progress</h3>
+
+            <div class="mb-3">
+              <label for="cr" class="form-label">Credits Completed:</label>
+              <input type="number" class="form-control" id="cr" name="cr" min="0">
+            </div>
+
+            <div class="mb-3">
+              <label for="in" class="form-label">Credits In Progress:</label>
+              <input type="number" class="form-control" id="in" name="in" min="0">
+            </div>
+
+            <div class="mb-3">
+              <label for="rq" class="form-label">Credits Required:</label>
+              <input type="number" class="form-control" id="rq" name="rq" min="1" value="120">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+<!-- Save Degree Information Button -->
+  <div class="mt-4">
+    <button type="button" class="btn btn-primary">
+      Save Degree Information
+    </button>
+  </div>
+
+ </section>
+
+<!-- Major and Minor Requirements -->
+ <div class="row g-4 mb-5">
+
+<!-- Major Requirements -->
+    <section id="major" class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
+
+          <h2 class="card-title">Major Requirements</h2>
+
+          <p>
+            Add your required major courses and check them off as you complete them.
+          </p>
+
+<!-- Major Requirements Checklist -->
+<h3 class="h5 mt-4 mb-3">Sample Course Checklist</h3>
+<p class="text-muted small">
+  Example courses shown for demonstration purposes. </p>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="major-course-1" name="major-course-1">
+              <label class="form-check-label" for="major-course-1">
+                Sample Course - 3 credits
+              </label>
+            </div>
+
+<!-- Add Major Course Form -->
+<form class="mt-4">
+  <div class="mb-3">
+    <label for="major-course-name" class="form-label">Course:</label>
+    <input type="text" class="form-control" id="major-course-name" name="major-course-name" placeholder="Enter course name">
+  </div>
+
+  <div class="mb-3">
+    <label for="major-course-credits" class="form-label">Credits:</label>
+    <input type="number" class="form-control" id="major-course-credits" name="major-course-credits" min="1" placeholder="Enter credit hours">
+  </div>
+
+  <button type="button" class="btn btn-primary">
+    Add Course
+  </button>
 
 </form>
-</section>
 
-<div class="requirements-grid">
+        </div>
+      </div>
+    </section>
 
-<section id="major">
+<!-- Minor Requirements -->
+    <section id="minor" class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
 
-<h2> Major Requirements </h2><p>Add your required major courses and check them off as you complete them.</p>
+          <h2 class="card-title">Minor Requirements</h2>
+          <p>
+            Add your required minor courses and check them off as you complete them.
+          </p>
 
-<form>
+<!-- Minor Requirements Checklist -->
+<h3 class="h5 mt-4 mb-3">Sample Course Checklist</h3>
+<p class="text-muted small">
+  Example courses shown for demonstration purposes. </p>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="minor-course-1" name="minor-course-1">
+              <label class="form-check-label" for="minor-course-1">
+                Sample Course - 3 credits
+              </label>
+            </div>
 
-<h3>Checklist</h3>
+<!-- Add Minor Course Form -->
+<form class="mt-4">
+  <div class="mb-3">
+    <label for="minor-course-name" class="form-label">Course:</label>
+    <input type="text" class="form-control" id="minor-course-name" name="minor-course-name" placeholder="Enter course name">
+  </div>
 
-<ul>
-   <li>
-<input type="checkbox" id="major-course-1" name="major-course-1"><label for="major-course-1">Sample Course - 3 credits</label>
-</li>
+  <div class="mb-3">
+    <label for="minor-course-credits" class="form-label">Credits:</label>
+    <input type="number" class="form-control" id="minor-course-credits" name="major-course-credits" min="1" placeholder="Enter credit hours">
+  </div>
 
-<li>
-<input type="checkbox" id="major-course-2" name="major-course-2"><label for="major-course-2">Sample Course - 3 credits</label>
-</li>
+  <button type="button" class="btn btn-primary">
+    Add Course
+  </button>
 
-<li>
-<input type="checkbox" id="major-course-3" name="major-course-3"><label for="major-course-3">Sample Course - 3 credits</label>
-</li>
+</form>
 
-</ul>
-
-   <label for="major-course">Course:</label>
-   <input type="text" id="major-course" name="major-course" placeholder="Enter course name">
-
-   <label for="major-credits">Credits:</label>
-   <input type="number" id="major-credits" name="major-credits" placeholder="Enter credits">
-
-   <button type="submit">Add Course</button>
-
-   </form>
-
-</section>
-
-<section id="minor">
-
-<h2> Minor Requirements </h2><p>Add your required minor courses and check them off as you complete them.</p>
-
-<form>
-
-<h3>Checklist</h3>
-
-
-<ul>
-   <li>
-<input type="checkbox" id="minor-course-1" name="minor-course-1"><label for="minor-course-1">Sample Course - 3 credits</label>
-</li>
-
-<li>
-<input type="checkbox" id="minor-course-2" name="minor-course-2"><label for="minor-course-2">Sample Course - 3 credits</label>
-</li>
-
-<li>
-<input type="checkbox" id="minor-course-3" name="minor-course-3"><label for="minor-course-3">Sample Course - 3 credits</label>
-</li>
-
-</ul>
-
-   <label for="minor-course">Course:</label>
-   <input type="text" id="minor-course" name="minor-course" placeholder="Enter course name">
-
-   <label for="minor-credits">Credits:</label>
-   <input type="number" id="minor-credits" name="minor-credits" placeholder="Enter credits">
-
-   <button type="submit">Add Course</button>
-
-   </form>
-
+</div>
+</div>
 </section>
 
 </div>
 
-<section id="gen-ed">
+<!-- General Education Requirements -->
+ <section id="gen-ed" class="mb-5">
 
-<h2>General Education Requirements</h2><p> Check off each General Education requirement as you complete it. Course options that fulfill each requirement are listed below the clusters.</p>
+  <h2 class="mb-3">General Education Requirements</h2>
+  <p class="mb-4">
+    Track your General Education requirements by expanding each group and checking off completed course clusters.
+  </p>
 
-<div class="gen-ed-area alternate">
+<!-- Bootstrap Accordion -->
+ <div class="accordion" id="genEdAccordion">
 
-<h3>Madison Foundations</h3>
+  <!-- Madison Foundations -->
+    <div class="accordion-item">
 
-         <ul>
-            <li>
-               <input type="checkbox" id="critical-thinking" name="critical-thinking">
-               <label for="critical-thinking">Critical Thinking (C1CT) - Choose one course</label>
+      <h3 class="accordion-header" id="headingMadison">
+        <button class="accordion-button" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseMadison"
+        aria-expanded="true"
+        aria-controls="collapseMadison">
+        Madison Foundations
+      </button>
+    </h3>
 
-               <ul>
-                  <li> BUS 160 </li>
-                  <li> EDUC 102 </li>
-                  <li> HIST 150 </li>
-                  <li> ISAT 160</li>
-                  <li> PHIL 120 </li>
-                  <li> PHIL 150 </li>
-                  <li> SMAD 150 </li>
-                  <li> UNST 300 &amp; Other Integrative Options</li>
-               </ul>
-            </li>
+  <div id="collapseMadison" class="accordion-collapse collapse show" role="region" aria-labelledby="headingMadison" data-bs-parent="#genEdAccordion"> 
 
-            <li>
-               <input type="checkbox" id="human-communication" name="human-communication">
-               <label for="human-communication">Human Communication (C1HC) - Choose one course</label>
+    <div class="accordion-body">
 
-               <ul>
-                  <li> SCOM 121 </li>
-                  <li> SCOM 122 </li>
-                  <li> SCOM 123 </li>
-               </ul>
+    <!-- Critical Thinking -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="critical-thinking" name="critical-thinking">
+      <label class="form-check-label" for="critical-thinking">
+        Critical Thinking (C1CT) - Choose one course
+      </label>
+    </div>
 
-            </li>
+    <ul class="mt-2 ms-3">
+      <li> BUS 160 </li>
+      <li> EDUC 102 </li>
+      <li> HIST 150 </li>
+      <li> ISAT 160</li>
+      <li> PHIL 120 </li>
+      <li> PHIL 150 </li>
+      <li> SMAD 150 </li>
+      <li> UNST 300 &amp; Other Integrative Options</li>
+    </ul>
+  </div>
 
-               <li>
-               <input type="checkbox" id="Writing" name="Writing">
-               <label for="Writing">Writing (C1W) - Choose one course</label>
+    <!-- Human Communication -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="human-communication" name="human-communication">
+      <label class="form-check-label" for="human-communication">
+        Human Communication (C1HC) - Choose one course
+      </label>
+    </div>
 
-               <ul>
-                  <li> WRTC 103 </li>
-               </ul>
-            </li>
-</ul>
+    <ul class="mt-2 ms-3">
+      <li> SCOM 121 </li>
+      <li> SCOM 122 </li>
+      <li> SCOM 123 </li>
+    </ul>
+  </div>
 
+    <!-- Writing -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Writing" name="Writing">
+      <label class="form-check-label" for="Writing">
+        Writing (C1W) - Choose one course
+      </label>
+    </div>
+
+    <ul class="mt-2 ms-3">
+      <li> WRTC 103 </li>
+    </ul>
+  </div>
+    </div>
+  </div>
 </div>
 
-<div class="gen-ed-area"> 
-<h3>Sociocultural &amp; Wellness Area</h3>
+<!-- Sociocultural & Wellness Area -->
+    <div class="accordion-item">
 
-      <ul>
-         <li>
-            <input type="checkbox" id="wellness" name="wellness">
-            <label for="wellness">Wellness Domain (C5WD) - Choose one course </label>
+      <h3 class="accordion-header" id="headingWellness">
+        <button class="accordion-button collapsed" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseWellness"
+        aria-expanded="false"
+        aria-controls="collapseWellness">
+        Sociocultural &amp; Wellness Area
+      </button>
+    </h3>
 
-            <ul>
-               <li> HTH 100 </li>
-               <li> KIN 100 </li>
-            </ul>
-         </li>
+  <div id="collapseWellness" class="accordion-collapse collapse" role="region" aria-labelledby="headingWellness" data-bs-parent="#genEdAccordion"> 
 
-         <li>
-            <input type="checkbox" id="sculture" name="sculture">
-            <label for="sculture">Sociocultural Domain (C5SD) - Choose one course </label>
+    <div class="accordion-body">
 
-            <ul>
-               <li> PSYC 101</li>
-               <li> PSYC 160</li>
-               <li> SOCI 140</li>
-               <li> WGSS 200</li>
-            </ul>
 
-         </li>
-</ul>
+    <!-- Wellness Domain -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="wellness" name="wellness">
+      <label class="form-check-label" for="wellness">
+        Wellness Domain (C5WD) - Choose one course
+      </label>
+    </div>
 
+    <ul class="mt-2 ms-3">
+      <li> HTH 100 </li>
+      <li> KIN 100 </li>
+    </ul>
+  </div>
+
+    <!-- Sociocultural Domain -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="sculture" name="sculture">
+      <label class="form-check-label" for="sculture">
+        Sociocultural Domain (C5SD) - Choose one course
+      </label>
+    </div>
+
+    <ul class="mt-2 ms-3">
+      <li> PSYC 101 </li>
+      <li> PSYC 160 </li>
+      <li> SOCI 140 </li>
+      <li> WGSS 200 </li>
+    </ul>
+  </div>
+</div>
+</div>
 </div>
 
-<div class="gen-ed-area alternate">
+<!-- Arts & Humanities -->
+    <div class="accordion-item">
 
-<h3>Arts &amp; Humanities</h3>
+      <h3 class="accordion-header" id="headingArts">
+        <button class="accordion-button collapsed" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseArts"
+        aria-expanded="false"
+        aria-controls="collapseArts">
+        Arts &amp; Humanities
+      </button>
+    </h3>
 
-      <ul>
-         <li>
-            <input type="checkbox" id="hum" name="hum">
-            <label for="hum">Human Questions and Contexts (C2HQC) - Choose one course</label>
+  <div id="collapseArts" class="accordion-collapse collapse" role="region" aria-labelledby="headingArts" data-bs-parent="#genEdAccordion"> 
 
-            <ul>
-               <li> AMST 200 </li>
-               <li> ANTH 205 </li>
-               <li> HIST 101 </li>
-               <li> HIST 102 </li>
-               <li> HUM 250 </li>
-               <li> HUM 251 </li>
-               <li> HUM 252 </li>
-               <li> LAXC 252 </li>
-               <li> PHIL 101 </li>
-               <li> REL 101 </li>
-               <li> REL 102 </li>
-            </ul>
-         </li>
+    <div class="accordion-body">
 
-         <li>
-            <input type="checkbox" id="vis" name="vis">
-            <label for="vis">Visual and Performing Arts (C2VPA) - Choose one course </label>
 
-            <ul>
-               <li> ART 200</li>
-               <li> ARTH 205</li>
-               <li> ARTH 206</li>
-               <li> DANC 215</li>
-               <li> MUS 200</li>
-               <li> MUS 203</li>
-               <li> MUS 206</li>
-               <li> THEA 210</li>
+    <!-- Human Questions and Contexts -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="hum" name="hum">
+      <label class="form-check-label" for="hum">
+        Human Questions and Contexts (C2HQC) - Choose one course
+      </label>
+    </div>
 
-            </ul>
+    <ul class="mt-2 ms-3">
+      <li> AMST 200 </li>
+      <li> ANTH 205 </li>
+      <li> HIST 101 </li>
+      <li> HIST 102 </li>
+      <li> HUM 250 </li>
+      <li> HUM 251 </li>
+      <li> HUM 252 </li>
+      <li> LAXC 252 </li>
+      <li> PHIL 101 </li>
+      <li> REL 101 </li>
+      <li> REL 102 </li>
+    </ul>
+  </div>
 
-         </li>
+    <!-- Visual and Performing Arts -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="vis" name="vis">
+      <label class="form-check-label" for="vis">
+        Visual and Performing Arts (C2VPA) - Choose one course
+      </label>
+    </div>
 
-          <li>
-               <input type="checkbox" id="lit" name="lit">
-               <label for="lit">Literature (C2L) - Choose one course </label>
+    <ul class="mt-2 ms-3">
+      <li> ART 200 </li>
+      <li> ARTH 205 </li>
+      <li> ARTH 206 </li>
+      <li> DANC 215 </li>
+      <li> MUS 200 </li>
+      <li> MUS 203 </li>
+      <li> MUS 206 </li>
+      <li> THEA 210 </li>
+    </ul>
+  </div>
 
-               <ul>
-                  <li> ENG 221</li>
-                  <li> ENG 222</li>
-                  <li> ENG 235</li>
-                  <li> ENG 236</li>
-                  <li> ENG 239</li>
-                  <li> ENG 247</li>
-                  <li> ENG 248</li>
-                  <li> ENG 260</li>
-                  <li> HUM 200</li>
-               </ul>
-            </li>
-</ul>
+    <!-- Literature -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="lit" name="lit">
+      <label class="form-check-label" for="lit">
+        Literature (C2L) - Choose one course
+      </label>
+    </div>
+
+    <ul class="mt-2 ms-3">
+      <li> ENG 221 </li>
+      <li> ENG 222 </li>
+      <li> ENG 235 </li>
+      <li> ENG 236 </li>
+      <li> ENG 239 </li>
+      <li> ENG 247 </li>
+      <li> ENG 248 </li>
+      <li> ENG 260 </li>
+      <li> HUM 200 </li>
+    </ul>
+  </div>
+</div>
+</div>
 </div>
 
-<div class="gen-ed-area"> 
+<!-- American & Global Perspectives -->
+    <div class="accordion-item">
 
-<h3>American &amp; Global Perspectives</h3>
+      <h3 class="accordion-header" id="headingGlobal">
+        <button class="accordion-button collapsed" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseGlobal"
+        aria-expanded="false"
+        aria-controls="collapseGlobal">
+        American &amp; Global Perspectives
+      </button>
+    </h3>
 
-   <ul>
-      <li>
-         <input type="checkbox" id="am" name="am">
-         <label for="am">The American Experience (C4AE) - Choose one course </label>
+  <div id="collapseGlobal" class="accordion-collapse collapse" role="region" aria-labelledby="headingGlobal" data-bs-parent="#genEdAccordion"> 
 
-         <ul>
-            <li> HIST 225 </li>
-            <li> JUST 225 </li>
-            <li> POSC 225 </li>
-         </ul>
-      </li>
+    <div class="accordion-body">
 
-      <li>
-         <input type="checkbox" id="glo" name="glo">
-         <label for="glo">The Global Experience (C4GE) - Choose one course </label>
 
-         <ul>
-            <li> AAAD 200</li>
-            <li> ANTH 195</li>
-            <li> ECON 200</li>
-            <li> GEOG 200</li>
-            <li> POSC 200</li>
-            <li> SOCI 110</li>
-         </ul>
-      </li>
-</ul>
+    <!-- The American Experience -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="am" name="am">
+      <label class="form-check-label" for="am">
+        The American Experience (C4AE) - Choose one course
+      </label>
+    </div>
+
+    <ul class="mt-2 ms-3">
+      <li> HIST 225 </li>
+      <li> JUST 225 </li>
+      <li> POSC 225 </li>
+    </ul>
+  </div>
+
+    <!-- The Global Experience -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="glo" name="glo">
+      <label class="form-check-label" for="glo">
+        The Global Experience (C4GE) - Choose one course
+      </label>
+    </div>
+
+    <ul class="mt-2 ms-3">
+      <li> AAAD 200 </li>
+      <li> ANTH 195 </li>
+      <li> ECON 200 </li>
+      <li> GEOG 200 </li>
+      <li> POSC 200 </li>
+      <li> SOCI 110 </li>
+    </ul>
+  </div>
 
 </div>
+</div>
+</div>
+
+<!-- The Natural World -->
+    <div class="accordion-item">
+
+      <h3 class="accordion-header" id="headingNatural">
+        <button class="accordion-button collapsed" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseNatural"
+        aria-expanded="false"
+        aria-controls="collapseNatural">
+        The Natural World
+      </button>
+    </h3>
+
+  <div id="collapseNatural" class="accordion-collapse collapse" role="region" aria-labelledby="headingNatural" data-bs-parent="#genEdAccordion"> 
+
+    <div class="accordion-body">
 
 
-<div class="gen-ed-area alternate">
+    <!-- Quantitative Reasoning -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="qr" name="qr">
+      <label class="form-check-label" for="qr">
+        Quantitative Reasoning (C3QR) - Choose one course
+      </label>
+    </div>
 
-<h3>The Natural World</h3>
+    <ul class="mt-2 ms-3">
+      <li> ISAT 151 </li>
+      <li> ISAT 251 </li>
+      <li> MATH 103 </li>
+      <li> MATH 105 </li>
+      <li> MATH 110 </li>
+      <li> MATH 205 </li>
+      <li> MATH 220 </li>
+      <li> MATH 229 </li>
+      <li> MATH 231 </li>
+      <li> MATH 235 </li>
+    </ul>
+  </div>
 
-      <ul>
-         <li>
-            <input type="checkbox" id="qr" name="qr">
-            <label for="qr">Quantitative Reasoning (C3QR) - Choose one course </label>
+    <!-- Physical Principles -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="pp" name="pp">
+      <label class="form-check-label" for="pp">
+        Physical Principles (C3PP) - Choose one course
+      </label>
+    </div>
 
-            <ul>
-               <li> ISAT 151 </li>
-               <li> ISAT 251 </li>
-               <li> MATH 103 </li>
-               <li> MATH 105 </li>
-               <li> MATH 110 </li>
-               <li> MATH 205 </li>
-               <li> MATH 220 </li>
-               <li> MATH 229 </li>
-               <li> MATH 231</li>
-               <li> MATH 235 </li>
-            </ul>
-         </li>
+    <ul class="mt-2 ms-3">
+       <li> ASTR 120 </li>
+       <li> ASTR 121 </li>
+       <li> CHEM 120 </li>
+       <li> CHEM 131 </li>
+       <li> ENVT 101 </li>
+       <li> ISAT 100 </li>
+       <li> ISAT 112 </li>
+       <li> ISCI 101 </li>
+       <li> ISCI 172 </li>
+       <li> PHYS 121 </li>
+       <li> PHYS 140 </li>
+       <li> PHYS 215 </li>
+       <li> PHYS 240 </li>
+    </ul>
+  </div>
 
-         <li>
-            <input type="checkbox" id="pp" name="pp">
-            <label for="pp">Physical Principles (C3PP) - Choose one course </label>
+  <!-- Natural Systems -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="ns" name="ns">
+      <label class="form-check-label" for="ns">
+        Natural Systems (C3NS) - Choose one course
+      </label>
+    </div>
 
-            <ul>
-               <li> ASTR 120 </li>
-               <li> ASTR 121 </li>
-               <li> CHEM 120 </li>
-               <li> CHEM 131 </li>
-               <li> ENVT 101 </li>
-               <li> ISAT 100 </li>
-               <li> ISAT 112 </li>
-               <li> ISCI 101 </li>
-               <li> ISCI 172 </li>
-               <li> PHYS 121 </li>
-               <li> PHYS 140 </li>
-               <li> PHYS 215 </li>
-               <li> PHYS 240 </li>
-            </ul>
-         </li>
+    <ul class="mt-2 ms-3">
+       <li> ANTH 196 </li>
+       <li> BIO 103 </li>
+       <li> BIO 140 </li>
+       <li> BIO 270 </li>
+       <li> GEOL 102 </li>
+       <li> GEOL 110 </li>
+       <li> GEOL 115 </li>
+       <li> GEOL 210 </li>
+       <li> GEOL 211 </li>
+       <li> ISAT 113 </li>
+       <li> ISCI 171 </li>
+    </ul>
+  </div>
 
-          <li>
-               <input type="checkbox" id="ns" name="ns">
-               <label for="ns">Natural Systems (C3NS) - Choose one course </label>
+  <!-- Lab Experience -->
+    <div class="mb-4">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="lab" name="lab">
+      <label class="form-check-label" for="lab">
+        Lab Experience (C3L) - Choose one course
+      </label>
+    </div>
 
-               <ul>
-                  <li> ANTH 196 </li>
-                  <li> BIO 103 </li>
-                  <li> BIO 140 </li>
-                  <li> BIO 270 </li>
-                  <li> GEOL 102 </li>
-                  <li> GEOL 110 </li>
-                  <li> GEOL 115 </li>
-                  <li> GEOL 210 </li>
-                  <li> GEOL 211 </li>
-                  <li> ISAT 113 </li>
-                  <li> ISCI 171 </li>
-               </ul>
-            </li>
+    <ul class="mt-2 ms-3">
+       <li> ANTH 196L </li>
+       <li> BIO 140L </li>
+       <li> BIO 270L </li>
+       <li> CHEM 131L </li>
+       <li> GEOL 110L </li>
+       <li> GEOL 115L </li>
+       <li> ISAT 113L</li>
+       <li> ISCI 104 </li>
+       <li> ISCI 173 </li>
+       <li> PHYS 140L </li>
+       <li> PHYS 240L </li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Official JMU General Education Planner -->
+    <p class="mt-4">
+      Download the <a href="https://www.jmu.edu/gened/_files/general-education-planner-2026-2027.pdf">Official JMU General Education Requirement (PDF)</a> for more information about course requirements.</p>
+
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="text-center py-4">
+  <div class="container">
+    <p class="mb-0">&copy; Emilie Kluge </p>
+  </div>
+</footer>
 
 
-          <li>
-               <input type="checkbox" id="lab" name="lab">
-               <label for="lab">Lab Experience (C3L) - Choose one course </label>
-
-               <ul>
-                  <li> ANTH 196L </li>
-                  <li> BIO 140L </li>
-                  <li> BIO 270L </li>
-                  <li> CHEM 131L </li>
-                  <li> GEOL 110L </li>
-                  <li> GEOL 115L </li>
-                  <li> ISAT 113L</li>
-                  <li> ISCI 104 </li>
-                  <li> ISCI 173 </li>
-                  <li> PHYS 140L </li>
-                  <li> PHYS 240L </li>
-               </ul>
-            </li>
-         </ul>
-         <p>Download the <a href="https://www.jmu.edu/gened/_files/general-education-planner-2026-2027.pdf">Official JMU General Education Requirement (PDF)</a> for catalog details.</p>
-         </div>
-
-         
-      </section>
-
-   </main>
+<!-- LOAD BOOTSTRAP JAVASCRIPT - DO NOT DELETE -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<!-- END LOADING BOOTSTRAP JAVASCRIPT -->
       
-   <footer>
-      <p>&copy; Emilie Kluge</p>
-   </footer>
-
-</body>
-
+  </body>
 </html>

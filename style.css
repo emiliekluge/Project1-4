@@ -1,255 +1,202 @@
+/* DukeTrack Custom Styles */
+
 body {
-   background-color: #f7f6f2;
-   font-family: "Poppins", Arial, sans-serif;
-   margin: 0;
+   background-color: #f5f0fa;
+   font-family: "Poppins", sans-serif;
+   color: #000000;
 }
 
-h1,h2,h3,legend {
-   font-family: Georgia, "Times New Roman", serif;
-}
 
-.overview-card {
-   background-color: white;
-   border: 1px solid #d6d6d6;
-   border-radius: 8px;
-   padding: 25px;
-}
-
-.overview-card h3 {
+h1,h2,h3 {
+   font-family: Georgia, serif;
    color: #450084;
-   font-size: 1.5rem;
-   margin-top: 0;
-   margin-bottom: 25px;
 }
 
 
-.requirements-grid {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 30px;
+
+/* Navigation Bar */
+
+.navbar {
+	background-color: #450084;
 }
 
-#major, #minor {
-   background-color: white;
-   border: 1px solid #d6d6d6;
-   border-radius: 8px;
-   padding: 25px;
+.navbar-brand,.navbar .nav-link {
+	color: white;
 }
 
-.overview-grid {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 30px;
-   margin-bottom: 20px;
-}
-
-#major h2, #minor h2 {
-   margin-top: 0;
+.navbar-brand:hover,.navbar .nav-link:hover {
+	color: #d8b4fe;
 }
 
 
-#major ul, #minor ul {
-   list-style: none;
-   padding-left: 0;
+.navbar-toggler {
+	border-color: white;
 }
 
-#major li, #minor li {
-   margin-bottom: 8px;
+.navbar-toggler-icon {
+	filter: brightness(0) invert(1);
 }
 
-#major form input[type="text"], #major form input[type="number"],#minor form input[type="text"], #minor form input[type="number"] {
-   display: block;
-   margin-top: 5px;
-   margin-bottom: 15px;
-}
 
-label[for="major-course"], label[for="major-credits"], label[for="minor-course"], label[for="minor-credits"] {
-   display: block;
-   font-weight: 600;
-}
-
-#major button, #minor button {
-   display: block;
-   margin-top: 5px;
-}
+/* Header */
 
 header {
-   background-color: #eee4f5;
-   color: #450084;
-   padding: 30px;
+	background-color: #e9ddf5;
+	text-align: center;
 }
 
-nav ul {
-   list-style: none;
-   padding: 0;
-   display: flex;
-   gap: 40px;
+header h1 {
+	font-size: 2.5rem;
+	font-weight: bold;
 }
 
-nav {
-   margin-top: 20px;
-   margin-bottom: 10px;
-}
-
-
-nav a {
-   color: #450084;
-   text-decoration: none;
-   font-weight: bold;
-}
-
-nav a:hover {
-   text-decoration: underline;
-}
-
-h1 {
-   font-size: 2.5rem;
-   margin-top: 0;
-   margin-bottom: 10px;
+header .lead {
+	max-width:750px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 
-img {
-   max-width: 100%;
-   height: auto;
-}
+/* Graduation Photo */
 
 .hero-image {
-   display: block;
-   width: 100%;
-   max-height: 180px;
-   object-fit: cover;
-   object-position: center;
-   margin-top: 25px;
-   border-radius: 6px;
-}
-
-section {
-   margin-bottom: 40px;
+	max-height: 400px;
+	object-fit: cover;
+	object-position: center;
 }
 
 
-h2 {
-   color: #450084;
-   font-size: 1.8rem;
-   margin-bottom: 20px;
+/* Bootstrap Cards */
+
+.card {
+	border: 1px solid #d8c5eb;
+	border-radius: 12px;
+	box-shadow: 0 3px 10px rgba(69,0,132,0.08);
+}
+
+.card-title {
+	color: #450084;
 }
 
 
-.overview-card p label {
-   display: inline-block;
-   width: 180px;
+
+/* Bootstrap Buttons */
+
+.btn-primary {
+	background-color: #450084;
+	border-color: #450084;
 }
 
-.overview-card:first-child p label {
-   width: 90px;
-}
-
-input[type="text"],
-input[type="number"] {
-   width: 250px;
-   padding: 8px;
-   border: 1px solid #999999;
-   border-radius: 4px;
-   font-size: 1rem;
-}
-
-fieldset p {
-   margin: 15px 0;
-}
-
-button {
-   background-color: #430084;
-   color: white;
-   border: none;
-   padding: 10px 16px;
-   border-radius: 4px;
-   font-size: 1rem;
-   font-weight: bold;
+.btn-primary:hover {
+	background-color: #330063;
+	border-color: #330063;
 }
 
 
-main {
-   max-width: 1250px;
-   margin: 0 auto;
-   padding:40px 40px 10px;
+/* General Education Accordion */
+
+.accordion-button {
+	background-color: #f3eafa;
+	color: #450084;
+	font-family: Georgia, serif;
+	font-weight: bold;
 }
 
-.gen-ed-area {
-   padding: 18px 20px;
+.accordion-button:not(.collapsed) {
+	background-color: #e9ddf5;
+	color: #450084;
+	box-shadow: none;
 }
 
-.gen-ed-area.alternate {
-   background-color: #f2edf7;
+.accordion-item {
+	border-color: #d8c5eb;
 }
 
-.gen-ed-area h3 {
-   color: #450084;
-   font-size: 1.4rem;
-   margin-top: 0;
+.accordion-button:focus {
+	box-shadow: 0 0 0 0.2rem rgba(69,0,132,0.15);
 }
 
-.gen-ed-area ul ul {
-   list-style: none;
-   margin-top: 6px;
-   margin-bottom: 15px;
-   padding-left: 25px;
-   line-height: 1.5;
+
+/* Checkboxes */
+
+.form-check-input:checked {
+	background-color: #450084;
+	border-color: #450084;
 }
 
-.gen-ed-area ul ul li::before {
-   content:"-";
+.form-check-input:focus {
+	border-color: #9370b5;
+	box-shadow: 0 0 0 0.2rem rgba(69,0,132,0.15);
 }
 
-.gen-ed-area > ul {
-   list-style: none;
-   padding-left: 10px;
-   display: grid;
-   grid-template-columns: 45% 45%;
-   column-gap: 40px;
-   row-gap: 20px;
+
+/* Form Fields */
+
+.form-control:focus {
+	border-color: #9370b5;
+	box-shadow: 0 0 0 0.2rem rgba(69,0,132,0.15);
 }
 
-.gen-ed-area > ul > li > label {
-   font-weight: 600;
-}
-
-input[type="checkbox"]:checked+label{
-   text-decoration: line-through;
-   opacity: 0.5;
-}
-
-#gen-ed input[type="checkbox"]:checked~ul{
-   opacity: 0.5;
-}
+/* Footer */
 
 footer {
-   max-width: 1250px;
-   margin: 0 auto;
-   padding: 0px 40px 30px;
-}
-
-#gen-ed > p:last-of-type {
-   margin-top: 30px;
-}
-
-#gen-ed {
-   margin-bottom: 10px;
+	background-color: #450084;
+	color:white;
 }
 
 footer p {
-   margin: 0;
+	font-family: 'Poppins', sans-serif;
+	font-size: 0.9rem;
 }
 
-.gen-ed-resource {
-   margin-top: 25px;
-   margin-bottom: 0;
+
+/* DukeTrack Title */
+
+.navbar-brand {
+	font-family: Georgia, serif;
+	font-size: 1.6rem;
+	font-weight: bold;
 }
 
-#gen-ed a {
-   color: #450084;
+
+
+/* Navigation Link Underline */
+
+.navbar .nav-link:hover,.navbar .nav-link:focus-visible {
+	text-decoration: underline;
+	text-underline-offset: 5px;
 }
 
-#gen-ed a:hover {
-   color: #6b3fa0;
+
+/* Mobile Navigation Separation */
+
+@media (max-width:991.98px) {
+	.navbar-collapse{
+		border-top: 1px solid #9370b5;
+		margin-top: 8px;
+		padding-top: 4px;
+	}
 }
+
+.navbar .nav-link {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+
+@media (max-width:991.98px) {
+	.navbar-collapse{
+		margin-left: calc(-1*var(--bs-gutter-x)/2);
+		margin-right: calc(-1*var(--bs-gutter-x)/2);
+		padding-left: calc(-1*var(--bs-gutter-x)/2);
+		padding-right: calc(-1*var(--bs-gutter-x)/2);
+	}
+}
+
+
+
+
+
+
+
+
