@@ -3,15 +3,24 @@
 body {
    background-color: #f5f0fa;
    font-family: "Poppins", sans-serif;
-   color: #000000;
+   color: #24202a;
+   line-height: 1.6;
 }
 
 
 h1,h2,h3 {
    font-family: Georgia, serif;
    color: #450084;
+   line-height: 1.2;
 }
 
+h2 {
+	font-size: 1.75rem;
+}
+
+h3.card-title {
+	font-size: 1.5rem;
+}
 
 
 /* Navigation Bar */
@@ -31,11 +40,10 @@ h1,h2,h3 {
 
 .navbar-toggler {
 	border-color: white;
+	min-height: 44px;
+	min-width: 48px;
 }
 
-.navbar-toggler-icon {
-	filter: brightness(0) invert(1);
-}
 
 
 /* Header */
@@ -60,7 +68,7 @@ header .lead {
 /* Graduation Photo */
 
 .hero-image {
-	max-height: 400px;
+	height: 280px;
 	object-fit: cover;
 	object-position: center;
 }
@@ -73,6 +81,11 @@ header .lead {
 	border-radius: 12px;
 	box-shadow: 0 3px 10px rgba(69,0,132,0.08);
 }
+
+.card-body {
+	padding: 1.25rem;
+}
+
 
 .card-title {
 	color: #450084;
@@ -92,6 +105,12 @@ header .lead {
 	border-color: #330063;
 }
 
+.btn {
+	min-height:46px;
+	padding: 0.6rem 1rem;
+	white-space: normal;
+}
+
 
 /* General Education Accordion */
 
@@ -100,7 +119,25 @@ header .lead {
 	color: #450084;
 	font-family: Georgia, serif;
 	font-weight: bold;
+	font-size: 1.1rem;
+	line-height: 1.4;
+	min-height: 56px;
+	gap: 1rem;
 }
+
+.accordion-button::after {
+	flex-shrink: 0;
+	margin-left: auto;
+}
+
+.accordion-body {
+	padding: 1rem;
+}
+
+.accordion-body ul {
+	padding-left: 1rem;
+}
+
 
 .accordion-button:not(.collapsed) {
 	background-color: #e9ddf5;
@@ -118,6 +155,27 @@ header .lead {
 
 
 /* Checkboxes */
+.form-check {
+	padding-left: 2rem;
+}
+
+.form-check-input {
+	width: 1.25rem;
+	height: 1.25rem;
+	border-color: #897b95;
+}
+
+.form-check .form-check-input {
+	margin-left: -2rem;
+	margin-top: 0.7rem;
+}
+
+.form-check-label {
+	display: block;
+	padding: 0.5rem 0;
+	min-height: 44px;
+	cursor: pointer;
+}
 
 .form-check-input:checked {
 	background-color: #450084;
@@ -125,16 +183,22 @@ header .lead {
 }
 
 .form-check-input:focus {
-	border-color: #9370b5;
-	box-shadow: 0 0 0 0.2rem rgba(69,0,132,0.15);
+	border-color: #450084;
+	box-shadow: 0 0 0 0.2rem rgba(69,0,132,0.2);
 }
 
 
 /* Form Fields */
 
+.form-control {
+	min-height: 46px;
+	font-size: 1rem;
+	border-color: #897b95;
+}
+
 .form-control:focus {
-	border-color: #9370b5;
-	box-shadow: 0 0 0 0.2rem rgba(69,0,132,0.15);
+	border-color: #450084;
+	box-shadow: 0 0 0 0.2rem rgba(69,0,132,0.2);
 }
 
 /* Footer */
@@ -170,7 +234,7 @@ footer p {
 
 /* Mobile Navigation Separation */
 
-@media (max-width:991.98px) {
+@media (max-width:1199.98px) {
 	.navbar-collapse{
 		border-top: 1px solid #9370b5;
 		margin-top: 8px;
@@ -179,24 +243,111 @@ footer p {
 }
 
 .navbar .nav-link {
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding-top: 12px;
+	padding-bottom: 12px;
 }
 
 
-@media (max-width:991.98px) {
-	.navbar-collapse{
-		margin-left: calc(-1*var(--bs-gutter-x)/2);
-		margin-right: calc(-1*var(--bs-gutter-x)/2);
-		padding-left: calc(-1*var(--bs-gutter-x)/2);
-		padding-right: calc(-1*var(--bs-gutter-x)/2);
+/* Smaller heading on phones */
+@media (max-width: 767.98px) {
+	header h1 {
+		font-size:2rem;
+	}
+}
+
+/* Full-wdith buttons on phones */
+@media (max-width: 575.98px) {
+	.btn-primary {
+		width: 100%;
+	}
+}
+	
+
+
+/* Taller graduation banner on large screens */
+@media (min-width: 1200px) {
+	.hero-image {
+		height: 360px;
 	}
 }
 
 
+/* Larger headings and card spacing from the tablet breakpoint */
+@media (min-width: 768px) {
+	h2 {
+		font-size: 2rem;
+	}
+
+	.card-body {
+		padding: 1.5rem;
+	}
+
+	.accordion-body {
+		padding: 1.5rem;
+	}
+}
+
+
+/* Cross off a checked General Education requirement */
+#gen-ed .form-check-input:checked + .form-check-label {
+	text-decoration: line-through;
+	color: #65576f;
+}
+
+
+/* Mark a section complete when every requirement is checked */
+#gen-ed .accordion-item:has(.form-check-input:checked):not(:has(.form-check-input:not(:checked))) .accordion-button {
+	text-decoration: line-through;
+	color: #65576f;
+	background-color: #f0edf3;
+}
 
 
 
+/* Expandable Add Course forms */
+.course-entry {
+	border-top: 1px solid #d8c5eb;
+	padding-top: 0.5rem;
+}
+
+.course-entry summary {
+	color: #450084;
+	font-weight: 600;
+	padding: 0.75rem 0;
+	cursor: pointer;
+}
+
+.progress {
+	height: 1rem;
+	background-color: #e9ddf5;
+}
+
+.progress-bar {
+	background-color: #450084;
+	width: 0%;
+}
 
 
+.progress-summary {
+	font-weight: 600;
+	margin-top: 1rem;
+}
 
+
+.course-remove {
+	display: inline-grid;
+	place-items: center;
+	width: 32px;
+	height: 32px;
+	flex-shrink: 0;
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	color: #65576f;
+	cursor: pointer;
+}
+
+.course-remove:hover, .course-remove:focus-visible {
+	background-color: #f0edf3;
+	color: #450084;
+}

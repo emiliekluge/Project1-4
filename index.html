@@ -7,12 +7,6 @@
     <meta name="author" content="Emilie Kluge">
     <title>DukeTrack | Degree Tracker</title>
 
-    <!-- AI Use Disclosure:
-    Tool(s): ChatGPT (free version)
-    Purpose: Helped explain Bootstrap components, the grid system, and responsive design. Assisted with organizing the HTML slightly and help troubleshooting layout issues.
-    Human Role: I selected which suggestions to use, modified the layout, customized the design and styling, and verified responsiveness manually.-->
-
-
    <!-- Bootstrap v5.3.8 -->
    <!-- LOAD BOOTSTRAP CSS - DO NOT DELETE -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -30,14 +24,16 @@
 <!--
 AI Use Disclosure:
 Tool(s): ChatGPT
-Purpose: Helped explain Bootstrap 5.3.8 components, plan a responsive layout, and provide guidance for converting my previous HTML and CSS website to Bootstrap.
-Human Role: I selected the components, manually implemented and customized the code, and will test the layout and responsiveness.-->
+Purpose: Reviewed my existing code and suggested responsive improvements for image visibility, card order, button sizing, navigation spacing, and accordion behavior. Additionally, ChatGPT helped generate the JavaScript for saving and restoring degree information, updating the credit progress bar, and managing the course and General Education checklists.
+Human Role: I manually implemented the changes, customized the styling, and tested the responsive layout by resizing my browser. I also then added and tested the JavaScript in my project. -->
 
 </head>
 <body>
 
 <!-- Navigation Bar -->
-<nav class= "navbar navbar-expand-lg">
+<nav class= "navbar navbar-expand-xl"
+data-bs-theme="dark"
+aria-label="Main navigation">
   <div class="container">
 
     <a class="navbar-brand" href="#"> DukeTrack </a>
@@ -80,35 +76,57 @@ Human Role: I selected the components, manually implemented and customized the c
  </nav> 
 
 <!-- Header -->
-<header class= "py-4">
+<header id="top" class= "py-4 py-md-5">
   <div class="container">
 
     <h1 class="mb-3">Welcome to DukeTrack!</h1>
 
-    <p class="lead">
+    <p class="lead d-none d-md-block">
       A simple way for JMU students to see what they've completed and what they still need to graduate!
     </p>
     
+    <p class="d-md-none mb-0">
+      Your credits and graduation requirements, in one place.
+    </p>
+
     <!-- Graduation Image -->
     <img src="jmu-commencement.jpg"
-        class="img-fluid rounded w-100 mt-3 hero-image"
+        class="img-fluid rounded w-100 mt-3 hero-image d-none d-md-block"
         alt="JMU students at a commencement ceremony wearing their purple caps and gowns">
 
    </div>
   </header>    
 
 <!-- Main Content -->
-<main class="container my-5">
+<main id="main-content" class="container my-4 my-md-5">
 
  <!-- Degree Overview Section -->
  <section id="overview" class="mb-5">
 
   <h2 class="mb-4">Degree Overview</h2>
+<p id="credit-summary" class="progress-summary">
+              0 of 120 credits completed (0%)
+            </p>
 
+            <div id="degree-progress"
+            class="progress mb-3"
+            role="progressbar"
+            aria-label="Completed degree credits"
+            aria-valuenow="0"
+            aria-valuemin="0"
+            aria-valuemax="100">
+            <div id="degree-progress-bar" class= "progress-bar"> </div>
+          </div>
+
+          <p id= "credit-remaining" class="small">
+          120 credits remaining </p>
+
+          <p class="small text-muted">
+          Enter credit totals from your academic record. Course checklists are tracked separately. </p>
   <div class="row g-4">
 
     <!-- Degree Information Card -->
-      <div class="col-md-6">
+      <div class="col-md-6 order-2 order-md-1">
         <div class="card h-100">
           <div class="card-body">
 
@@ -133,7 +151,7 @@ Human Role: I selected the components, manually implemented and customized the c
       </div>
 
 <!-- Credit Hours Progress Card -->
-      <div class="col-md-6">
+      <div class="col-md-6 order-1 order-md-2">
         <div class="card h-100">
           <div class="card-body">
 
@@ -162,9 +180,13 @@ Human Role: I selected the components, manually implemented and customized the c
 
 <!-- Save Degree Information Button -->
   <div class="mt-4">
-    <button type="button" class="btn btn-primary">
+    <button type="button" class="btn btn-primary" id="save-degree">
       Save Degree Information
     </button>
+    <p id="save-message" class="mt-2" role="status"></p>
+
+    <p class="small text-muted mt-2 mb-0">
+Your information is saved only in this browser on this device. </p>
   </div>
 
  </section>
@@ -184,18 +206,15 @@ Human Role: I selected the components, manually implemented and customized the c
           </p>
 
 <!-- Major Requirements Checklist -->
-<h3 class="h5 mt-4 mb-3">Sample Course Checklist</h3>
-<p class="text-muted small">
-  Example courses shown for demonstration purposes. </p>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" id="major-course-1" name="major-course-1">
-              <label class="form-check-label" for="major-course-1">
-                Sample Course - 3 credits
-              </label>
-            </div>
+<h3 class="h5 mt-4 mb-3">Course Checklist</h3>
+<p id="major-summary" class="small text-muted">
+  No courses added yet. Expand the form below to add your first course. </p>
+            <ul id="major-course-list" class="list-unstyled"></ul>
 
 <!-- Add Major Course Form -->
-<form class="mt-4">
+<details class="course-entry mt-4">
+  <summary> Add a major course </summary>
+<form class="mt-3">
   <div class="mb-3">
     <label for="major-course-name" class="form-label">Course:</label>
     <input type="text" class="form-control" id="major-course-name" name="major-course-name" placeholder="Enter course name">
@@ -211,6 +230,7 @@ Human Role: I selected the components, manually implemented and customized the c
   </button>
 
 </form>
+</details>
 
         </div>
       </div>
@@ -227,18 +247,15 @@ Human Role: I selected the components, manually implemented and customized the c
           </p>
 
 <!-- Minor Requirements Checklist -->
-<h3 class="h5 mt-4 mb-3">Sample Course Checklist</h3>
-<p class="text-muted small">
-  Example courses shown for demonstration purposes. </p>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" id="minor-course-1" name="minor-course-1">
-              <label class="form-check-label" for="minor-course-1">
-                Sample Course - 3 credits
-              </label>
-            </div>
+<h3 class="h5 mt-4 mb-3">Course Checklist</h3>
+<p id="minor-summary" class="small text-muted">
+  No courses added yet. Expand the form below to add your first course. </p>
+            <ul id="minor-course-list" class="list-unstyled"></ul>
 
 <!-- Add Minor Course Form -->
-<form class="mt-4">
+<details class="course-entry mt-4">
+  <summary> Add a minor course </summary>
+<form class="mt-3">
   <div class="mb-3">
     <label for="minor-course-name" class="form-label">Course:</label>
     <input type="text" class="form-control" id="minor-course-name" name="minor-course-name" placeholder="Enter course name">
@@ -246,7 +263,7 @@ Human Role: I selected the components, manually implemented and customized the c
 
   <div class="mb-3">
     <label for="minor-course-credits" class="form-label">Credits:</label>
-    <input type="number" class="form-control" id="minor-course-credits" name="major-course-credits" min="1" placeholder="Enter credit hours">
+    <input type="number" class="form-control" id="minor-course-credits" name="minor-course-credits" min="1" placeholder="Enter credit hours">
   </div>
 
   <button type="button" class="btn btn-primary">
@@ -254,6 +271,7 @@ Human Role: I selected the components, manually implemented and customized the c
   </button>
 
 </form>
+</details>
 
 </div>
 </div>
@@ -276,16 +294,16 @@ Human Role: I selected the components, manually implemented and customized the c
     <div class="accordion-item">
 
       <h3 class="accordion-header" id="headingMadison">
-        <button class="accordion-button" type="button"
+        <button class="accordion-button collapsed" type="button"
         data-bs-toggle="collapse"
         data-bs-target="#collapseMadison"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-controls="collapseMadison">
         Madison Foundations
       </button>
     </h3>
 
-  <div id="collapseMadison" class="accordion-collapse collapse show" role="region" aria-labelledby="headingMadison" data-bs-parent="#genEdAccordion"> 
+  <div id="collapseMadison" class="accordion-collapse collapse" role="region" aria-labelledby="headingMadison" data-bs-parent="#genEdAccordion"> 
 
     <div class="accordion-body">
 
@@ -680,5 +698,9 @@ Human Role: I selected the components, manually implemented and customized the c
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <!-- END LOADING BOOTSTRAP JAVASCRIPT -->
       
+
+<!-- DukeTrack custom JavaScript -->
+<script src="script.js"></script>
+
   </body>
 </html>
